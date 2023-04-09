@@ -36,7 +36,13 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Question name</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control">
+                                                    <asp:TextBox ID="txtQuestionID" runat="server" CssClass="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="inputText" class="col-sm-2 col-form-label">Question name</label>
+                                                <div class="col-sm-10">
+                                                    <asp:TextBox ID="txtQuestionText" runat="server" CssClass="form-control" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -52,6 +58,7 @@
                                                 <label for="inputText" class="col-sm-2 col-form-label">Default mark</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control">
+                                                    
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -118,6 +125,11 @@
                                                         <p>Hello World!</p>
                                                         <p>This is Quill <strong>full</strong> editor</p>
                                                     </div>
+                                                    <asp:TextBox ID="txtID1" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtChoice1" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                                    <%--<script type="text/javascript" lang="javascript">
+                                                        CKEDITOR.replace('<%=txtChoice1.ClientID%>');
+                                                    </script>--%>
                                                 </div>
                                             </div>
                                             <br />
@@ -419,7 +431,7 @@
                         <div class="row mb-3">
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-outline-primary">Save changes and continue editing</button>&nbsp;&nbsp;
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <asp:Button type="button" onclick="saveBank_Click" runat="server" id="saveBank" class="btn btn-primary" Text="Save changes"></asp:Button>
                                 &nbsp;&nbsp;
                                 <a href="Question_Bank.aspx" class="btn btn-secondary">Cancel</a>
                             </div>
