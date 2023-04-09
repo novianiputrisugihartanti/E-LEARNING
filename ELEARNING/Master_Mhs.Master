@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_Mhs.master.cs" Inherits="ELEARNING.Master_Mhs" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_Mhs.master.cs" Inherits="ELEARNING.Master_Mhs"  EnableViewState="true"%>
 
 
 <!DOCTYPE html>
@@ -381,15 +381,52 @@
                     <i class="bi bi-menu-button-wide"></i><span>My Courses</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a id="inibank" class="inianak" href="DetailCourses.aspx">
-                            <i class="bi bi-dash-lg"></i><span>Dasar Komputer</span>
-                        </a>
-                    </li>
+                    <asp:Repeater ID="RepeaterMatkul" runat="server">
+                        <ItemTemplate> 
+                            <li>
+                                <a class="inianak" href="DetailCourses.aspx?id=<%# DataBinder.Eval(Container.DataItem, "idMatKul") %>">
+                                    <i class="bi bi-dash-lg"></i><span><%# DataBinder.Eval(Container.DataItem, "matKul") %></span>
+                                </a>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    
                 </ul>
             </li>
             <!-- End Components Nav -->
         </ul>
+        <%--<script type="text/javascript">  
+            //When the page loads  
+            $(function () {
+                $.ajax({
+                    url: "https://localhost:44343/Kompetensi",
+                    type: 'GET',
+                    dataType: 'json',
+                    cors: true,
+                    contentType: 'application/json',
+                    secure: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                    },
+                    timeout: 5000,
+                    success: function (parsed_json) {
+                        alert(JSON.stringify(parsed_json));
+                        PageMethods.RepeterData(JSON.stringify(parsed_json));
+                    },
+                    error: function (parsedjson, textStatus, errorThrown) {
+                        alert("parsedJson: " + JSON.stringify(parsedjson));
+
+                        $('body').append(
+                            "parsedJson status: " + parsedjson.status + '</br>' +
+                            "errorStatus: " + textStatus + '</br>' +
+                            "errorThrown: " + errorThrown);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                });
+            });
+        </script>--%>
         <script>
 
             $(document).ready(function () {
@@ -450,6 +487,7 @@
 
     <form id="form1" runat="server">
         <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"/>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>

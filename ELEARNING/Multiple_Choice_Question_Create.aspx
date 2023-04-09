@@ -23,7 +23,28 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Question ID</label>
                                                 <div class="col-sm-10">
+<<<<<<< HEAD
                                                     <asp:TextBox ID="txtQuestionID" runat="server" class="form-control"></asp:TextBox>
+=======
+                                                    <select class="form-select">
+                                                        <option selected>Default for MI_2C_2022/2023_Pemrograman IV</option>
+                                                        <option value="1">Ado.Net & Store Procedure (20)</option>
+                                                        <option value="2">Arsitektur Wweb & HTML (40)</option>
+                                                        <option value="3">Validation & User Control (29)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="inputText" class="col-sm-2 col-form-label">Question name</label>
+                                                <div class="col-sm-10">
+                                                    <asp:TextBox ID="txtQuestionID" runat="server" CssClass="form-control" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="inputText" class="col-sm-2 col-form-label">Question name</label>
+                                                <div class="col-sm-10">
+                                                    <asp:TextBox ID="txtQuestionText" runat="server" CssClass="form-control" />
+>>>>>>> 7ee578df0accc0547e4ba4029281f4975f2ba787
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -38,7 +59,12 @@
                                             <div class="row mb-3 pt-5">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Topic</label>
                                                 <div class="col-sm-10">
+<<<<<<< HEAD
                                                     <asp:TextBox ID="txtTopic" runat="server" class="form-control"></asp:TextBox>
+=======
+                                                    <input type="text" class="form-control">
+                                                    
+>>>>>>> 7ee578df0accc0547e4ba4029281f4975f2ba787
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -66,11 +92,23 @@
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Choice 1</label>
                                                 <div class="col-sm-10">
+<<<<<<< HEAD
                                                     <asp:TextBox ID="txtID1" runat="server" class="form-control"></asp:TextBox>
                                                     <asp:TextBox ID="txtChoice1" runat="server" TextMode="MultiLine"></asp:TextBox>
                                                     <script type="text/javascript" lang="javascript">
                                                         CKEDITOR.replace('<%=txtChoice1.ClientID%>');
                                                     </script>
+=======
+                                                    <div class="editor">
+                                                        <p>Hello World!</p>
+                                                        <p>This is Quill <strong>full</strong> editor</p>
+                                                    </div>
+                                                    <asp:TextBox ID="txtID1" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtChoice1" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                                    <%--<script type="text/javascript" lang="javascript">
+                                                        CKEDITOR.replace('<%=txtChoice1.ClientID%>');
+                                                    </script>--%>
+>>>>>>> 7ee578df0accc0547e4ba4029281f4975f2ba787
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -254,8 +292,12 @@
                         <div class="row mb-3">
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-outline-primary">Save changes and continue editing</button>&nbsp;&nbsp;
+<<<<<<< HEAD
                                 <asp:Button ID="yourButtonId" CssClass="btn btn-primary" Text="Save changes" type="sumbit" runat="server" OnClick="yourButtonId_Click"  />
 
+=======
+                                <asp:Button type="button" onclick="saveBank_Click" runat="server" id="saveBank" class="btn btn-primary" Text="Save changes"></asp:Button>
+>>>>>>> 7ee578df0accc0547e4ba4029281f4975f2ba787
                                 &nbsp;&nbsp;
                                 <a href="Question_Bank.aspx" class="btn btn-secondary">Cancel</a>
                             </div>
