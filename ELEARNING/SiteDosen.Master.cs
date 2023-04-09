@@ -11,7 +11,9 @@ namespace ELEARNING
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //lblNama.Text = HttpContext.Current.Session["Nama1"].ToString();
+            //lblRole.Text = HttpContext.Current.Session["Role1"].ToString();
+            //lblnameatas.Text = HttpContext.Current.Session["Nama1"].ToString();
         }
     }
 }

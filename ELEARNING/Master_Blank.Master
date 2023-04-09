@@ -292,14 +292,14 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0 fs-20" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">Erwinda Yasytafiya</span>
+                        <asp:Label ID="lblnameatas" runat="server" CssClass="d-none d-md-block dropdown-toggle ps-2">AAAAAAA</asp:Label>
                     </a>
                     <!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Erwinda Yasytafiya</h6>
-                            <span>Mahasiswa</span>
+<h6><asp:Label ID="lblNama" runat="server"></asp:Label></h6>
+                            <span><asp:Label ID="lblRole" runat="server"></asp:Label></span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">

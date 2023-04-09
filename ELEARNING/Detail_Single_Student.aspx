@@ -24,11 +24,11 @@
                         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" width="75" height="75">
+                                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle" width="75" height="75" >
                                 </div>
                                 <div class="col-md-8">
-                            <h2>Amelia Canin</h2>
-                            <h3>0320230003</h3>
+                                    <h2 style="margin-left:5%;"><asp:Label runat="server" ID="lblnama"></asp:Label></h2>
+                                    <h3 style="margin-left:5%;"><asp:Label runat="server" ID="lblnim"></asp:Label></h3>
                                 </div>
                             </div>
                             
@@ -38,15 +38,15 @@
                                 <tbody>
                                     <tr class="table-primary">
                                         <th scope="row">Level Of Knowledge</th>
-                                        <td>Beginner</td>
+                                        <td><asp:Label runat="server" ID="lblLOK"></asp:Label></td>
                                     </tr>
                                     <tr class="table-primary">
                                         <th scope="row">Stage</th>
-                                        <td>1</td>
+                                        <td><asp:Label runat="server" ID="lblStage"></asp:Label></td>
                                     </tr>
                                     <tr class="table-primary">
                                         <th scope="row">Learning Style</th>
-                                        <td>Verbal, Active</td>
+                                        <td><asp:Label runat="server" ID="lblLS"></asp:Label></td>
                                     </tr>
                                 </tbody>
                             </table>

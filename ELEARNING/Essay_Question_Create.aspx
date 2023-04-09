@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteDosen.Master" AutoEventWireup="true" CodeBehind="Essay_Question_Create.aspx.cs" Inherits="ELEARNING.Essay_Question_Create" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SiteDosen.Master" AutoEventWireup="true" CodeBehind="Essay_Question_Create.aspx.cs" Inherits="ELEARNING.Essay_Question_Create" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -23,47 +23,32 @@
                                     <div class="card" style="outline: 1px solid grey;">
                                         <div class="card-body pt-4">
                                             <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Category</label>
+                                                <label for="inputText" class="col-sm-2 col-form-label">Question ID</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-select">
-                                                        <option selected>Default for MI_2C_2022/2023_Pemrograman IV</option>
-                                                        <option value="1">Ado.Net & Store Procedure (20)</option>
-                                                        <option value="2">Arsitektur Wweb & HTML (40)</option>
-                                                        <option value="3">Validation & User Control (29)</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-2 col-form-label">Question name</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control">
+                                                    <asp:TextBox ID="txtQuestionID" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <label for="inputText" class="col-sm-2 col-form-label">Question text</label>
                                                 <div class="col-sm-10">
-                                                    <div class="quill-editor-full">
-                                                        <p>Hello World!</p>
-                                                        <p>This is Quill <strong>full</strong> editor</p>
-                                                    </div>
+                                                    <asp:TextBox ID="txtQuestionText" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                                    <script type="text/javascript" lang="javascript">
+                                                        CKEDITOR.replace('<%=txtQuestionText.ClientID%>');
+                                                    </script>
                                                 </div>
                                             </div>
                                             <div class="row mb-3 pt-5">
-                                                <label for="inputText" class="col-sm-2 col-form-label">Default mark</label>
+                                                <label for="inputText" class="col-sm-2 col-form-label">Topic</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" value="1">
+                                                    <asp:TextBox ID="txtTopic" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-2 col-form-label">General feedback</label>
+                                                <label for="inputText" class="col-sm-2 col-form-label">Image</label>
                                                 <div class="col-sm-10">
-                                                    <div class="editor">
-                                                        <p>Hello World!</p>
-                                                        <p>This is Quill <strong>full</strong> editor</p>
-                                                    </div>
+                                                    <asp:TextBox ID="txtImage" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <br />
                                         </div>
                                     </div>
                                 </div>
@@ -73,51 +58,52 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingSix">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                    Response Options
+                                    Relationship
                                 </button>
                             </h2>
                             <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <div class="card" style="outline: 1px solid grey;">
                                         <div class="card-body pt-4">
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Response format</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select">
-                                                        <option selected>HTML editor</option>
-                                                    </select>
+                                            <h6 class="fw-bold text-dark">Select a relationship with LODetail </h6>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <asp:DropDownList ID="ddlkompetensi"
+                                                        AppendDataBoundItems="True" CssClass="form-select"
+                                                        runat="server">
+                                                    </asp:DropDownList>
                                                 </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Require text</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select">
-                                                        <option selected>Require the student to enter text</option>
-                                                    </select>
+                                                <div class="col-md-4">
+                                                    <asp:DropDownList ID="ddlkesulitan"
+                                                        AppendDataBoundItems="True" CssClass="form-select"
+                                                        runat="server">
+                                                        <asp:ListItem Value="Mudah">Mudah</asp:ListItem>
+                                                        <asp:ListItem Value="Sedang">Sedang</asp:ListItem>
+                                                        <asp:ListItem Value="Sulit">Sulit</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Input box size</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select">
-                                                        <option selected>15 lines</option>
-                                                    </select>
+                                                <div class="col-md-4">
+
+                                                    <asp:Button ID="Button1" CssClass="btn btn-primary" Text="Search" type="submit" runat="server" OnClick="Button1_Click"  />
                                                 </div>
+
+
                                             </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Allow attachment</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select">
-                                                        <option selected>No</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label class="col-sm-2 col-form-label">Requires attachments</label>
-                                                <div class="col-sm-10">
-                                                    <select class="form-select" enable="false">
-                                                        <option selected>Attachments are optional</option>
-                                                    </select>
+                                            <div class="row">
+
+                                                <div class="col-md-12">
+                                                    <asp:Repeater ID="rptLODetail" runat="server">
+                                                        <ItemTemplate>
+
+                                                            <%# (Container.ItemIndex) % 2 == 0 ? "<tr>" : string.Empty%>
+                                                            <td>
+                                                                <asp:CheckBox CssClass="form-check" runat="server" ID="rbt_etails" Text='<%# DataBinder.Eval(Container.DataItem, "Keterangan") %>'></asp:CheckBox>
+                                                            </td>
+                                                            <%# (Container.ItemIndex) % 2 == 2 ? "</tr>" : string.Empty%>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                    <asp:Label ID="lblMessage" runat="server" />
+
                                                 </div>
                                             </div>
                                         </div>
@@ -125,33 +111,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Grader Information
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <div class="card" style="outline: 1px solid grey;">
-                                        <div class="card-body pt-4">
-                                            <div class="row mb-3">
-                                                <label for="inputText" class="col-sm-3 col-form-label">Information for grades</label>
-                                                <div class="col-sm-9">
-                                                    <div class="editor">
-                                                        <p>Hello World!</p>
-                                                        <p>This is Quill <strong>full</strong> editor</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <br />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
 
                     </div>
                     <!-- End Accordion without outline borders -->
@@ -159,7 +118,7 @@
                         <div class="row mb-3">
                             <div class="col-sm-10">
                                 <button type="button" class="btn btn-outline-primary">Save changes and continue editing</button>&nbsp;&nbsp;
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <asp:Button ID="yourButtonId" CssClass="btn btn-primary" Text="Save changes" type="sumbit" runat="server" OnClick="yourButtonId_Click" />
                                 &nbsp;&nbsp;
                                 <a href="Question_Bank.aspx" class="btn btn-secondary">Cancel</a>
                             </div>
@@ -179,14 +138,6 @@
                 $('#flush-collapseOne').addClass('show');
             });
         });
-        var divs = document.getElementsByClassName("editor");
-        for (var i = 0; i < divs.length; i++) {
-            var quill = new Quill(divs[i], {
-                theme: 'snow'
-            });
-
-
-        }
 
     </script>
 </asp:Content>

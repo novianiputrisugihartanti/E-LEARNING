@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" />
     <main id="main" class="main">
 
         <div class="pagetitle">
@@ -21,34 +22,17 @@
 
                     <div class="card">
                         <div class="card-body">
+                            <asp:Label class="card-title" runat="server" ID="lblnim" ></asp:Label>
                             <h5 class="card-title">Question Bank</h5>
 
                             <form>
                                 <div class="row mb-3">
-                                    <label class="col-sm-2 col-form-label">Select a category</label>
+                                    <label class="col-sm-2 col-form-label">Select a competence</label>
                                     <div class="col-sm-10">
-                                        <select class="form-select">
-                                            <option selected>Default for MI_2C_2022/2023_Pemrograman I</option>
-                                            <option value="1">Ado.Net & Store Procedure (20)</option>
-                                            <option value="2">Arsitektur Wweb & HTML (40)</option>
-                                            <option value="3">Validation & User Control (29)</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="form-check" style="margin-left: 1%;">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                        <label class="form-check-label" for="gridCheck1">
-                                            Show question text in the question list
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="form-check" style="margin-left: 1%;">
-                                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                                        <label class="form-check-label" for="gridCheck1">
-                                            Also show question from subcategories
-                                        </label>
+                                        <asp:DropDownList ID="ddlkompetensi"
+                                            AppendDataBoundItems="True" CssClass="form-select" AutoPostBack="true"
+                                            runat="server" OnSelectedIndexChanged="ddlkompetensi_SelectedIndexChanged" >
+                                        </asp:DropDownList>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -57,187 +41,47 @@
                                     </div>
                                 </div>
                             </form>
-
-
-
-
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body pt-3">
-                            <table id="example" class="display" style="width: 100%">
-                                <thead>
-                                    <tr>
-                                        <th style="text-align: center">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck2">
-                                        </th>
-                                        <th>Question</th>
-                                        <th style="width: 20%">Action</th>
-                                        <th>Created By</th>
-                                        <th>Last Modified By</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td>Kumpulan halaman yang menyediakan informasi bagi pengguna dengan akases internet disebut</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#aq"><i class="bi bi-search" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Secara default interface memiliki hak akses...</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>HTTP kependekan dari Hypertext Transfer Protocol</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Kumpulan halaman yang menyediakan informasi bagi pengguna dengan akases internet disebut</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Secara default interface memiliki hak akses...</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>HTTP kependekan dari Hypertext Transfer Protocol</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Kumpulan halaman yang menyediakan informasi bagi pengguna dengan akases internet disebut</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Secara default interface memiliki hak akses...</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>HTTP kependekan dari Hypertext Transfer Protocol</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Kumpulan halaman yang menyediakan informasi bagi pengguna dengan akases internet disebut</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>Secara default interface memiliki hak akses...</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td>HTTP kependekan dari Hypertext Transfer Protocol</td>
-                                        <td>
-                                            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting"><i class="bi bi-gear"></i></button>
-                                            <button type="button" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate"><i class="bi bi-files"></i></button>
-                                            <button type="button" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"><i class="bi bi-search"></i></button>
-                                            <button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"><i class="bi bi-x-lg"></i></button>
-                                        </td>
-                                        <td>Noviani Putri Sugihartanti</td>
-                                        <td>Erwinda Yasytafiya</td>
-
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive my-3">
+                                <asp:GridView runat="server" ID="DGSoal" CssClass="table table-responsive table-bordered table-hover datatbemp" Width="100%" AutoGenerateColumns="false" OnPageIndexChanging="DGSoal_PageIndexChanging" OnRowCommand="DGSoal_RowCommand" OnSorting="DGSoal_Sorting" OnSelectedIndexChanged="DGSoal_SelectedIndexChanged">
+                                    <PagerSettings Mode="NumericFirstLast" FirstPageText="<<" LastPageText=">>" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <%# Container.DataItemIndex +1 %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="IdSoal" HeaderText="ID Soal" NullDisplayText="-" ItemStyle-HorizontalAlign="left" SortExpression="IdSoal" />
+                                        <asp:BoundField DataField="image" HeaderText="Image" NullDisplayText="-" ItemStyle-HorizontalAlign="left" SortExpression="image" />
+                                        <asp:BoundField DataField="pertanyaan" HtmlEncode=false HeaderText="Question" NullDisplayText="-" ItemStyle-HorizontalAlign="left" SortExpression="pertanyaan" />
+                                        <asp:BoundField DataField="topik" HeaderText="Topic" NullDisplayText="-" ItemStyle-HorizontalAlign="left" SortExpression="topik" />
+                                        <asp:TemplateField ItemStyle-Width="20%" HeaderText="Aksi" ItemStyle-HorizontalAlign="Center">
+                                            <ItemTemplate>
+                                                <asp:LinkButton CssClass="btn btn-secondary" runat="server"  data-bs-toggle="tooltip" data-bs-placement="bottom" title="Setting" CommandName="Atur" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    ><i class="bi bi-gear"></i></asp:LinkButton>
+                                                <asp:LinkButton CssClass="btn btn-warning" runat="server" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Duplicate" CommandName="Duplikat" CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    ><i class="bi bi-files"></i></asp:LinkButton>
+                                                <asp:LinkButton CssClass="btn btn-success" runat="server" data-bs-toggle="modal" data-bs-target="#aq"
+                                                    ><i  class="bi bi-search" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Preview"></i></asp:LinkButton>
+                                                <asp:LinkButton CssClass="btn btn-danger" runat="server" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete"  CommandName="Hapus"  CommandArgument='<%# DataBinder.Eval(Container, "RowIndex") %>'
+                                                    ><i  class="bi bi-x-lg"></i></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                    <HeaderStyle HorizontalAlign="Center" CssClass="table table-primary" />
+                                </asp:GridView>
+                            </div>
                         </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+                        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+                        <script>
+                            $(document).ready(function () {
+                                $(".datatbemp").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+                            });
+                        </script>
                         <div class="card-footer">
                             <h6 class="fw-bold text-dark">With selected</h6>
                             <div class="row">
@@ -302,7 +146,7 @@
 
                             </div>
                             <div class="col-md-8">
-                                <div class="card" style="height:100%;">
+                                <div class="card" style="height: 100%;">
                                     <div class="card-body pt-3">
                                         <label id="labelket">Select a question type to see its description</label>
                                     </div>
@@ -313,7 +157,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary" id="tambah" style="width:10%">Add</button>
+                        <button type="button" class="btn btn-primary" id="tambah" style="width: 10%">Add</button>
                     </div>
                 </div>
             </div>
@@ -395,7 +239,7 @@
                         <button type="button" class="btn btn-outline-primary">Fill In Correct Response</button>
                         <button type="button" class="btn btn-outline-primary">Submit And Finish</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close Preview</button>
-                        
+
                     </div>
                 </div>
             </div>
@@ -432,18 +276,18 @@
                 }
             });
 
-            $('#example').DataTable({
-                columnDefs: [{
-                    orderable: false,
-                    className: 'select-checkbox',
-                    targets: 0
-                }],
-                select: {
-                    style: 'os',
-                    selector: 'td:first-child'
-                },
-                order: [[1, 'asc']]
-            });
+            //$('#example').DataTable({
+            //    columnDefs: [{
+            //        orderable: false,
+            //        className: 'select-checkbox',
+            //        targets: 0
+            //    }],
+            //    select: {
+            //        style: 'os',
+            //        selector: 'td:first-child'
+            //    },
+            //    order: [[1, 'asc']]
+            //});
 
         });
 

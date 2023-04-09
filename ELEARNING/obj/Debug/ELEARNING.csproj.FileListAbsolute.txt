@@ -1,3 +1,4 @@
+C:\Users\student\source\repos\ELEARNING\ELEARNING\obj\Debug\ELEARNING.csproj.CoreCompileInputs.cache
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\ELEARNING.dll.config
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\ELEARNING.dll
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\ELEARNING.pdb
@@ -52,7 +53,6 @@ C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\roslyn\VBCSCompiler.exe
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\student\source\repos\ELEARNING\ELEARNING\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\student\source\repos\ELEARNING\ELEARNING\obj\Debug\ELEARNING.csproj.CoreCompileInputs.cache
 C:\Users\student\source\repos\ELEARNING\ELEARNING\obj\Debug\ELEARNING.csproj.CopyComplete
 C:\Users\student\source\repos\ELEARNING\ELEARNING\obj\Debug\ELEARNING.dll
 C:\Users\student\source\repos\ELEARNING\ELEARNING\obj\Debug\ELEARNING.pdb

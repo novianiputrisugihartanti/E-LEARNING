@@ -123,7 +123,7 @@
                         <td>
                             <h1>Dashboard</h1>
                         </td>
-                        <td dir="rtl" style="padding-left: 700px;">
+                        <td dir="rtl" style="padding-left: 40%;">
                             <div style="direction: rtl">
                                 <h1>Course : Pemrograman 1</h1>
                             </div>
@@ -227,9 +227,9 @@
                                                                     <div class="card-body pt-3" >
                                                                         <div class="align-items-center">
                                                                             <div>
-                                                                                <p class=" text-dark">Beginner</p>
+                                                                                <p class="text-dark" style="margin-left: -3%!important;">Beginner</p>
                                                                                 <h4 class="my-1 text-danger">12 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLoK_Beginner.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLoK.aspx?lok=Pemula" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -238,13 +238,13 @@
                                                         </div>
                                                         <div class="col-md-4">
                                                             <center>
-                                                                <div class="card radius-10  border-warnings" style="margin-left: -5%!important; margin-right: -5%!important;">
+                                                                <div class="card radius-10  border-warnings" style="margin-left: -2%!important; margin-right: -5%!important;">
                                                                     <div class="card-body pt-3">
                                                                         <div class="align-items-center">
                                                                             <div>
                                                                                 <p class=" text-dark">Moderate</p>
                                                                                 <h4 class="my-1 text-warning">10 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLoK_Moderate.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLoK.aspx?lok=Moderat" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -259,7 +259,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Expert</p>
                                                                                 <h4 class="my-1 text-info">5 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLoK_Expert.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLoK.aspx?lok=Lanjut" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -299,7 +299,8 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Active</p>
                                                                                 <h4 class="my-1" style="color: #c684dc;">5 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Active.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Active" >Details</asp:HyperLink>
+                                                                                
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -314,7 +315,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Reflective</p>
                                                                                 <h4 class="my-1" style="color: #c684dc;">6 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Reflective.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Reflective" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -330,7 +331,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Sensing</p>
                                                                                 <h4 class="my-1" style="color: #b3744e;">5 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Sensing.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Sensing" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -345,7 +346,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Intuitive</p>
                                                                                 <h4 class="my-1" style="color: #b3744e;">6 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Intuitive.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Intuitive" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -364,7 +365,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Visual</p>
                                                                                 <h4 class="my-1" style="color: #F09030;">10 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Visual.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Visual" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -380,7 +381,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Verbal</p>
                                                                                 <h4 class="my-1" style="color: #F09030;">9 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Verbal.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Verbal" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -396,7 +397,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Sequential</p>
                                                                                 <h4 class="my-1" style="color: #15ca20;">9 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Sequential.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Sequential" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -412,7 +413,7 @@
                                                                             <div>
                                                                                 <p class=" text-dark">Global</p>
                                                                                 <h4 class="my-1" style="color: #15ca20;">3 <i class="bi bi-person-fill"></i></h4>
-                                                                                <a href="Detail_Student_ByLS_Global.aspx" class="btn btn-outline-primary">Details</a>
+                                                                                <asp:HyperLink runat="server" CssClass="btn btn-outline-primary" NavigateUrl="Detail_ByLS.aspx?ls=Global" >Details</asp:HyperLink>
                                                                             </div>
                                                                         </div>
                                                                     </div>
