@@ -31,7 +31,7 @@ namespace ELEARNING
             Dosen dosen = java.Deserialize<List<Dosen>>(json)[0];
             
 
-            apiUrl = "https://localhost:44343/Kompetensi";
+            apiUrl = "https://localhost:44343/Kompetensi2";
             client = new WebClient();
             client.Headers["Content-type"] = "application/json";
             client.Headers["CORS"] = "true";

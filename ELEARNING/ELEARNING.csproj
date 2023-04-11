@@ -1374,6 +1374,7 @@
     <Content Include="TrueFalse_Question_Edit.aspx" />
     <Content Include="TrueFalse_Question_Create.aspx" />
     <Content Include="Web.config" />
+    <Content Include="Profile.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompetenceTest.aspx.cs">
@@ -1649,6 +1650,13 @@
     </Compile>
     <Compile Include="TrueFalse_Question_Create.aspx.designer.cs">
       <DependentUpon>TrueFalse_Question_Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -11,34 +11,43 @@ namespace ELEARNING
 {
 
 
-    public partial class Quiz
+    public partial class Profile
     {
 
         /// <summary>
-        /// RptNumber control.
+        /// RptprofilePhoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptNumber;
+        protected global::System.Web.UI.WebControls.Repeater RptprofilePhoto;
 
         /// <summary>
-        /// RptFinishAttempt control.
+        /// formFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptFinishAttempt;
+        protected global::System.Web.UI.WebControls.FileUpload formFile;
 
         /// <summary>
-        /// RptQuestion control.
+        /// btnUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RptQuestion;
+        protected global::System.Web.UI.WebControls.Button btnUpdate;
+
+        /// <summary>
+        /// RptProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RptProfile;
     }
 }

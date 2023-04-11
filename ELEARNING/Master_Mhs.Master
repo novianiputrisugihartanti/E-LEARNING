@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master_Mhs.master.cs" Inherits="ELEARNING.Master_Mhs"  EnableViewState="true"%>
 
 
+
 <!DOCTYPE html>
 
 <html>
@@ -8,7 +9,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>E-LEARNING</title>
+    <title>Project</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -19,7 +20,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -289,21 +290,21 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0 fs-20" href="#" data-bs-toggle="dropdown">
-                        <asp:Label ID="lblnameatas" runat="server" CssClass="d-none d-md-block dropdown-toggle ps-2">AAA</asp:Label>
+                        <span class="d-none d-md-block dropdown-toggle ps-2" id="lblUserLogin" runat="server"></span>
                     </a>
                     <!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6><asp:Label ID="lblNama" runat="server"></asp:Label></h6>
-                            <span><asp:Label ID="lblRole" runat="server"></asp:Label></span>
+                            <h6 id="lblUserLogin2" runat="server"></h6>
+                            <span id="lblUserNIM" runat="server"></span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <a class="dropdown-item d-flex align-items-center" href="Profile.aspx">
                                 <i class="bi bi-person"></i>
                                 <span>My Profile</span>
                             </a>
@@ -371,125 +372,41 @@
 
             <li class="nav-heading">Navigation</li>
             <li class="nav-item">
-                <a id="history" class="nav-link collapsed" href="<%= Page.ResolveUrl("~/LearningHistory.aspx") %>">
+                <a id="competence" class="nav-link collapsed" href="<%= Page.ResolveUrl("~/LearningHistory.aspx") %>">
                     <i class="bi bi-clock-history"></i>
                     <span>History</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" id="iniindukutama" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
                     <i class="bi bi-menu-button-wide"></i><span>My Courses</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <asp:Repeater ID="RepeaterMatkul" runat="server">
-                        <ItemTemplate> 
+                    <asp:Repeater ID="RptCourses" runat="server">
+                        <ItemTemplate>
                             <li>
-                                <a class="inianak" href="DetailCourses.aspx?id=<%# DataBinder.Eval(Container.DataItem, "idMatKul") %>">
+                                <%--<a id="inibank" class="inianak" href="DetailCourses.aspx?id=<%# DataBinder.Eval(Container.DataItem, "IdMatKul") %>">
                                     <i class="bi bi-dash-lg"></i><span><%# DataBinder.Eval(Container.DataItem, "matKul") %></span>
-                                </a>
+                                </a>--%>
+                                <asp:HyperLink runat="server" NavigateUrl='<%# "DetailCourses.aspx?id=" + Eval("IdMatKul")  %>'
+                                    Visible="true"><i class="bi bi-dash-lg"></i><%# DataBinder.Eval(Container.DataItem, "matKul") %></asp:HyperLink>
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-                    
                 </ul>
             </li>
             <!-- End Components Nav -->
-        </ul>
-        <%--<script type="text/javascript">  
-            //When the page loads  
-            $(function () {
-                $.ajax({
-                    url: "https://localhost:44343/Kompetensi",
-                    type: 'GET',
-                    dataType: 'json',
-                    cors: true,
-                    contentType: 'application/json',
-                    secure: true,
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                    timeout: 5000,
-                    success: function (parsed_json) {
-                        alert(JSON.stringify(parsed_json));
-                        PageMethods.RepeterData(JSON.stringify(parsed_json));
-                    },
-                    error: function (parsedjson, textStatus, errorThrown) {
-                        alert("parsedJson: " + JSON.stringify(parsedjson));
-
-                        $('body').append(
-                            "parsedJson status: " + parsedjson.status + '</br>' +
-                            "errorStatus: " + textStatus + '</br>' +
-                            "errorThrown: " + errorThrown);
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                });
-            });
-        </script>--%>
-        <script>
-
-            $(document).ready(function () {
-                var url = window.location.href;
-                var name = window.location.pathname;
-                console.log(url);
-                $("aside li a").each(function () {
-                    if (this.href == url) {
-                        if ($(this).hasClass('nav-link collapsed')) {
-                            $(this).removeClass('collapsed');
-
-                        } else if ($(this).hasClass('inianak')) {
-                            $("#iniindukutama").removeClass('collapsed');
-                            $("#components-nav").addClass('show');
-                            $(this).addClass('active');
-                            console.log("masuk sini");
-                        }
 
 
-                    }
-                });
-                if (name == "/DetailHistory.aspx") {
-                    var competence = document.getElementById("history");
-                    $(competence).removeClass('collapsed');
-                } else if (name == "/CompetenceTestResult.aspx") {
-                    var competence = document.getElementById("inibank");
-                    $("#iniindukutama").removeClass('collapsed');
-                    $("#components-nav").addClass('show');
-                    $("#inibank").addClass('active');
-                } else if (name == "/SumOfModul.aspx") {
-                    var competence = document.getElementById("inibank");
-                    $("#iniindukutama").removeClass('collapsed');
-                    $("#components-nav").addClass('show');
-                    $("#inibank").addClass('active');
-                } else if (name == "/SourceVideo.aspx") {
-                    var competence = document.getElementById("inibank");
-                    $("#iniindukutama").removeClass('collapsed');
-                    $("#components-nav").addClass('show');
-                    $("#inibank").addClass('active');
-                } else if (name == "/SampleQuestion.aspx") {
-                    $("#iniindukutama").removeClass('collapsed');
-                    $("#components-nav").addClass('show');
-                    var anak = document.getElementById("inibank");
-                    $(anak).addClass('active');
-                } else if (name == "/CourseOutline.aspx") {
-                    $("#iniindukutama").removeClass('collapsed');
-                    $("#components-nav").addClass('show');
-                    var anak = document.getElementById("inibank");
-                    $(anak).addClass('active');
-                }
-
-
-            });
-        </script>
-        <!-- End Icons Nav -->
+            <!-- End Icons Nav -->
     </aside>
     <!-- End Sidebar-->
 
     <form id="form1" runat="server">
         <div>
-            <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"/>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+            <asp:ScriptManager ID="smMain" runat="server" EnablePageMethods="true" />
         </div>
     </form>
 
@@ -522,6 +439,64 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
+    <script>
 
+        $(document).ready(function () {
+            var url = window.location.href;
+            var name = window.location.pathname;
+            $("aside li a").each(function () {
+                if (this.href == url) {
+                    if ($(this).hasClass('nav-link collapsed')) {
+                        $(this).removeClass('collapsed');
+                    } else if ($(this).hasClass('inianak')) {
+                        $("#iniindukutama").removeClass('collapsed');
+                        $("#components-nav").addClass('show');
+                        $(this).addClass('active');
+                    }
+
+
+                }
+            });
+            if (name == "/Monitoring_Quiz.aspx") {
+                $("#inibadan").addClass('toggle-sidebar');
+                console.log(name);
+            } else if (name == "/Edit_Quiz.aspx") {
+                $("#inibadan").addClass('toggle-sidebar');
+                console.log(name);
+            } else if (name == "/Review_Attempt_All.aspx") {
+                $("#inibadan").addClass('toggle-sidebar');
+                console.log(name);
+            } else if (name == "/Quiz_View.aspx") {
+                var competence = document.getElementById("competence");
+                $(competence).removeClass('collapsed');
+            } else if (name == "/Create_Quiz.aspx") {
+                var competence = document.getElementById("competence");
+                $(competence).removeClass('collapsed');
+            } else if (name == "/Create_URL.aspx") {
+                var competence = document.getElementById("competence");
+                $(competence).removeClass('collapsed');
+            } else if (name == "/Create_File.aspx") {
+                var competence = document.getElementById("competence");
+                $(competence).removeClass('collapsed');
+            } else if (name == "/Essay_Question_Create.aspx") {
+                $("#iniindukutama").removeClass('collapsed');
+                $("#components-nav").addClass('show');
+                var anak = document.getElementById("inibank");
+                $(anak).addClass('active');
+            } else if (name == "/Multiple_Choice_Question_Create.aspx") {
+                $("#iniindukutama").removeClass('collapsed');
+                $("#components-nav").addClass('show');
+                var anak = document.getElementById("inibank");
+                $(anak).addClass('active');
+            } else if (name == "/TrueFalse_Question_Create.aspx") {
+                $("#iniindukutama").removeClass('collapsed');
+                $("#components-nav").addClass('show');
+                var anak = document.getElementById("inibank");
+                $(anak).addClass('active');
+            }
+
+
+        });
+    </script>
 </body>
 </html>

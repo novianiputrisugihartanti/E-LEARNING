@@ -11,10 +11,11 @@
                         <div class="card-header"><b>Quiz Navigation</b></div>
                         <div class="card-body profile-card pt-4 d-flex flex-column">
                             <div>
-                                <a class="btn btn-light active" href="CompetenceTest.aspx">1</a>
-                                <a class="btn btn-light active" href="CompetenceTest.aspx">2</a>
-                                <a class="btn btn-light active" href="CompetenceTest.aspx">3</a>
-                                <a class="btn btn-light active" href="CompetenceTest.aspx">4</a>
+                                <asp:Repeater runat="server" ID="RptNumber">
+                                    <ItemTemplate>
+                                        <a class="btn btn-light" href="#"><%# Container.ItemIndex + 1 %></a>
+                                    </ItemTemplate>
+                                </asp:Repeater>
                             </div>
 
                         </div>
@@ -42,26 +43,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">1</th>
-                                            <td>Answer saved</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">2</th>
-                                            <td>Answer saved</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">3</th>
-                                            <td>Answer saved</td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">4</th>
-                                            <td>Answer saved</td>
-                                            <td></td>
-                                        </tr>
+                                        <asp:Repeater runat="server" ID="RptSum">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <th scope="row"><%# Container.ItemIndex + 1 %></th>
+                                                    <td>Answer saved</td>
+                                                    <td></td>
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+
                                     </tbody>
                                 </table>
                                 <div>

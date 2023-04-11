@@ -15,40 +15,40 @@ namespace ELEARNING
     {
 
         /// <summary>
-        /// lblnameatas control.
+        /// lblUserLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblnameatas;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUserLogin;
 
         /// <summary>
-        /// lblNama control.
+        /// lblUserLogin2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNama;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUserLogin2;
 
         /// <summary>
-        /// lblRole control.
+        /// lblUserNIM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRole;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUserNIM;
 
         /// <summary>
-        /// RepeaterMatkul control.
+        /// RptCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterMatkul;
+        protected global::System.Web.UI.WebControls.Repeater RptCourses;
 
         /// <summary>
         /// form1 control.
@@ -60,15 +60,6 @@ namespace ELEARNING
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
@@ -76,5 +67,14 @@ namespace ELEARNING
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+
+        /// <summary>
+        /// smMain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager smMain;
     }
 }

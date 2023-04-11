@@ -14,15 +14,21 @@ namespace ELEARNING
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //testResult.HRef = "CompetenceTestResult.aspx?id=" + Request.QueryString["id"];
-            
-            populateKompetensi();
+            if (!IsPostBack)
+            {
+                populateCompetence();
+                populateCourse();
+                populateTest();
+                populateComfirm();
+
+            }
 
         }
-        private void populateKompetensi()
+
+        private void populateCourse()
         {
-            string idMatkul = Request.QueryString["id"];
-            string apiUrl = "https://localhost:44343/Kompetensi";
+            string courseId = Request.QueryString["id"];
+            string apiUrl = "https://localhost:44343/Modul/" + courseId + "/getCoursebyID";
             string inputJson = "";
             WebClient client = new WebClient();
             client.Headers["Content-type"] = "application/json";
@@ -30,61 +36,126 @@ namespace ELEARNING
             client.Headers["Secure"] = "true";
             client.Headers["Data-type"] = "json";
             client.Encoding = Encoding.UTF8;
-            string json = client.DownloadString(apiUrl + "?fungsi=list&&idMatkul="+ idMatkul);
-            List<Kompetensi> listKomp = (new JavaScriptSerializer()).Deserialize<List<Kompetensi>>(json);
-            List<Kompetensi> listAsc = listKomp;
-            for (int i = listKomp.Count; i > 0; i--)
-            {
-                string idKomp = listKomp[i - 1].idKomp;
-                
-                int endIndex = idKomp.Length - 8;
-                string newId = idKomp.Substring(8, endIndex);
-                listKomp[i - 1].index = Convert.ToInt32(newId);
-
-                listKomp[i - 1].matkul = idMatkul;
-                listAsc[Convert.ToInt32(newId)-1] = listKomp[i - 1];
-            }
-            rptDaftarKomp.DataSource = listAsc;
-            rptDaftarKomp.DataBind();
-
+            string json = client.DownloadString(apiUrl);
+            List<matkul> a = (new JavaScriptSerializer()).Deserialize<List<matkul>>(json);
+            matkul m = a[0];
+            lblCourseName.InnerText = m.MatKul;
+            lblBCCourseName.InnerHtml = m.MatKul;
 
         }
-        public class Quiz
+
+        private void populateComfirm()
         {
-            public string idUjian { get; set; }
+            string courseId = Request.QueryString["id"];
+            string apiUrl = "https://localhost:44343/Modul/" + courseId + "/getTestbyIDMatkul";
+            string inputJson = "";
+            WebClient client = new WebClient();
+            client.Headers["Content-type"] = "application/json";
+            client.Headers["CORS"] = "true";
+            client.Headers["Secure"] = "true";
+            client.Headers["Data-type"] = "json";
+            client.Encoding = Encoding.UTF8;
+            string json = client.DownloadString(apiUrl);
+            List<CompTest> list = (new JavaScriptSerializer()).Deserialize<List<CompTest>>(json);
+            //RptConfirm.DataSource = (new JavaScriptSerializer()).Deserialize<List<CompTest>>(json);
+            //RptConfirm.DataBind();
+        }
+
+        public class matkul
+        {
+            public string IdMatKul { get; set; }
+            public string MatKul { get; set; }
+            public string SKS { get; set; }
+            public string Semester { get; set; }
+        }
+
+        private void populateCompetence()
+        {
+            string courseId = Request.QueryString["id"];
+            string apiUrl = "https://localhost:44343/Modul/" + courseId + "/getKompbyCourse";
+            string inputJson = "";
+            WebClient client = new WebClient();
+            client.Headers["Content-type"] = "application/json";
+            client.Headers["CORS"] = "true";
+            client.Headers["Secure"] = "true";
+            client.Headers["Data-type"] = "json";
+            client.Encoding = Encoding.UTF8;
+            string json = client.DownloadString(apiUrl);
+            List<Competence> list = (new JavaScriptSerializer()).Deserialize<List<Competence>>(json);
+            RptCompetence.DataSource = (new JavaScriptSerializer()).Deserialize<List<Competence>>(json);
+            RptCompetence.DataBind();
+        }
+
+        public class Competence
+        {
+            public string IdKomp { get; set; }
+            public string loK { get; set; }
+            public string kompetensi { get; set; }
+        }
+
+        protected void RptCompetence_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                string lblComp = (e.Item.FindControl("lblComp") as HiddenField).Value;
+                Repeater RptLODetail = e.Item.FindControl("RptLODetail") as Repeater;
+                string apiUrl = "https://localhost:44343/Modul/AC/" + lblComp + "/getLObyLS";
+                string inputJson = "";
+                WebClient client = new WebClient();
+                client.Headers["Content-type"] = "application/json";
+                client.Headers["CORS"] = "true";
+                client.Headers["Secure"] = "true";
+                client.Headers["Data-type"] = "json";
+                client.Encoding = Encoding.UTF8;
+                string json = client.DownloadString(apiUrl);
+                List<LODetail> a = (new JavaScriptSerializer()).Deserialize<List<LODetail>>(json);
+                RptLODetail.DataSource = (new JavaScriptSerializer()).Deserialize<List<LODetail>>(json);
+                RptLODetail.DataBind();
+            }
+        }
+
+        public class LODetail
+        {
+            public string IdLODetail { get; set; }
+            public string loDetail { get; set; }
+            public string loKet { get; set; }
+            public string tkKesulitan { get; set; }
+        }
+
+        private void populateTest()
+        {
+            string courseId = Request.QueryString["id"];
+            string apiUrl = "https://localhost:44343/Modul/" + courseId + "/getTestbyIDMatkul";
+            string inputJson = "";
+            WebClient client = new WebClient();
+            client.Headers["Content-type"] = "application/json";
+            client.Headers["CORS"] = "true";
+            client.Headers["Secure"] = "true";
+            client.Headers["Data-type"] = "json";
+            client.Encoding = Encoding.UTF8;
+            string json = client.DownloadString(apiUrl);
+            List<CompTest> a = (new JavaScriptSerializer()).Deserialize<List<CompTest>>(json);
+            CompTest m = a[0];
+            lblAttempt.Text = m.attempt;
+            lblTestName.InnerText = m.namaUjian;
+            lblStart.Text = m.timeOpen;
+            lblClose.Text = m.timeClose;
+        }
+
+        public class CompTest
+        {
+            public string IdPelaksanaan { get; set; }
+            public string attempt { get; set; }
+            public string keterangan { get; set; }
+            public string IdUjian { get; set; }
+            public string IsJawabRandom { get; set; }
+            public string IsPertRandom { get; set; }
+            public string PertPerHalaman { get; set; }
             public string deskripsi { get; set; }
             public string namaUjian { get; set; }
-            public string matkul { get; set; }
-        }
-        public class Kompetensi
-        {
-            public string idKomp { get; set; }
-            public string kompetensi { get; set; }
-            public string matkul { get; set; }
-            public int index { get; set; }
-        }
-
-        protected void rptDaftarKomp_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            string idMatkul = Request.QueryString["id"];
-            string lblComp = (e.Item.FindControl("idKomp") as HiddenField).Value;
-            string apiUrl = "https://localhost:44343/Quiz";
-            string inputJson = "";
-            WebClient client = new WebClient();
-            client.Headers["Content-type"] = "application/json";
-            client.Headers["CORS"] = "true";
-            client.Headers["Secure"] = "true";
-            client.Headers["Data-type"] = "json";
-            client.Encoding = Encoding.UTF8;
-            string json = client.DownloadString(apiUrl + "?idKomp=" + lblComp);
-            List<Quiz> listQuiz = (new JavaScriptSerializer()).Deserialize<List<Quiz>>(json);
-            for (int i = listQuiz.Count; i > 0; i--)
-            {
-                listQuiz[i - 1].matkul = idMatkul;
-            }
-            Repeater rptDaftarQuiz = e.Item.FindControl("rptDaftarQuiz") as Repeater;
-            rptDaftarQuiz.DataSource = listQuiz;
-            rptDaftarQuiz.DataBind();
+            public string timeClose { get; set; }
+            public string timeLimit { get; set; }
+            public string timeOpen { get; set; }
         }
     }
 }

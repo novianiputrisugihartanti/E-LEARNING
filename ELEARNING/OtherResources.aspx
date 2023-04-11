@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Mhs.Master" AutoEventWireup="true" CodeBehind="OtherResources.aspx.cs" Inherits="ELEARNING.OtherResources" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <main id="main" class="main">
+   <main id="main" class="main">
 
         <div class="pagetitle">
             <h1>Course</h1>
@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item">Course</li>
-                    <li class="breadcrumb-item">Other Resourse</li>
+                    <li class="breadcrumb-item" id="lblBCCompName" runat="server"></li>
                 </ol>
             </nav>
         </div>
@@ -29,8 +29,7 @@
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Modul 1: Konsep Algoritma
+                                        <button id="btnCollapse" runat="server" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         </button>
                                     </h2>
 
@@ -46,17 +45,18 @@
                                                 <div class="col-md-9">
                                                     <div>
                                                         <ul class="list-group list-group-flush">
+                                                            <asp:Repeater ID="RptLODetail" runat="server">
+                                                                <ItemTemplate>
+                                                                    <li class="list-group-item">
+                                                                        <input class="form-check-input me-1" id="chk1" type="checkbox" value="" aria-label="..." disabled>
+                                                                        <a href="CourseOutline.aspx" style="color: black;"><%# DataBinder.Eval(Container.DataItem, "loKet") %></a>
+                                                                    </li>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
                                                             <li class="list-group-item">
-                                                                <a href="CourseOutline.aspx" style="color: black;">[Outline mengenai Tipe dan Ekspresi]</a>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <a href="Dashboard.aspx" style="color: black">[Contoh soal sebelum materi]</a>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <a href="SourceVideo.aspx" style="color: black">[Video mengenai Tipe dan Ekspresi]</a>
-                                                            </li>
-                                                            <li class="list-group-item">
-                                                                <a href="Dashboard.aspx" style="color: black">[Summary mengenai Tipe & Ekspresi]</a>
+                                                                <div class="align-items-center" style="margin-left:35%">
+                                                                    <a id="lblEmpty" runat="server" href="CourseOutline.aspx" style="color: red;">Belum ada resource untuk modul ini</a>
+                                                                </div>
                                                             </li>
                                                         </ul>
                                                     </div>

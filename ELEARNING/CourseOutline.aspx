@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Mhs.Master" AutoEventWireup="true" CodeBehind="CourseOutline.aspx.cs" Inherits="ELEARNING.CourseOutline" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <main id="main" class="main">
+   <main id="main" class="main">
 
         <div class="pagetitle">
             <h1>Course</h1>
@@ -8,7 +8,7 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item">Course</li>
-                    <li class="breadcrumb-item">Outline Pembelajaran Tipe & Ekspresi</li>
+                    <li class="breadcrumb-item" id="lblBCCourseName" runat="server"></li>
                 </ol>
             </nav>
         </div>
@@ -22,7 +22,7 @@
                         <div class="card-header">
                             <div class="row">
                                 <div class="col-xl-11">
-                                    <h5 class="card-title">Outline Pembelajaran Tipe & Ekspresi</h5>
+                                    <h5 class="card-title" style="margin-left: 3%" id="lblCourseName" runat="server"></h5>
                                 </div>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                             
 
                             <%--<object data="/assets/file/LDOM 2023.pdf#toolbar=0" width="100%" height="500px"></object>--%>
-                            <embed type="application/pdf" src="/assets/file/VivAstra - Astra Polytechnic.pdf#toolbar=0" width="100%" height="500px" />
+                            <embed type="application/pdf" src="/assets/file/VivAstra - Astra Polytechnic.pdf#toolbar=0" width="100%" height="1000px" />
                             <div class="row">
                                 <div class="col-xl-11">
                                 </div>
